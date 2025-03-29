@@ -9,6 +9,7 @@ public class LimitNode extends ASTNode {
 
     @Override
     public void print(String prefix) {
-        System.out.println("LIMIT\n" + prefix + limit);
+        System.out.println(prefix + "LIMIT");
+        System.out.println(prefix + "    └── " + limit);
     }
 }

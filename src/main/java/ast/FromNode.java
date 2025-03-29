@@ -9,6 +9,7 @@ public class FromNode extends ASTNode {
 
     @Override
     public void print(String prefix) {
-        System.out.println("FROM\n" + prefix + name);
+        System.out.println(prefix + "FROM");
+        System.out.println(prefix + "│   └── " + name);
     }
 }

@@ -19,11 +19,18 @@ public class SelectNode extends ASTNode {
 
     @Override
     public void print(String prefix) {
-        System.out.println(prefix + "SELECT");
-        columns.forEach(col -> col.print(prefix + "  "));
-        table.print(prefix + "  ");
-        if (where != null) where.print(prefix + "  ");
-        if (orderBy != null) orderBy.print(prefix + "  ");
-        if (limit != null) limit.print(prefix + "  ");
+        System.out.println(prefix + "Запрос");
+        System.out.println(prefix + "├── SELECT");
+
+        for (int i = 0; i < columns.size(); i++) {
+            String connector = (i == columns.size() - 1) ? "└── " : "├── ";
+            columns.get(i).print(prefix + "│   " + connector);
+        }
+
+        table.print(prefix + "├── ");
+
+        if (where != null) where.print(prefix + "├── ");
+        if (orderBy != null) orderBy.print(prefix + "├── ");
+        if (limit != null) limit.print(prefix + "└── ");
     }
 }

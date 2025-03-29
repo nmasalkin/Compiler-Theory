@@ -11,6 +11,7 @@ public class OrderByNode extends ASTNode {
 
     @Override
     public void print(String prefix) {
-        System.out.println("ORDER BY\n" + prefix + column + (ascending ? " ASC" : " DESC"));
+        System.out.println(prefix + "ORDER BY");
+        System.out.println(prefix + "│   └── " + column + (ascending ? " ASC" : " DESC"));
     }
 }

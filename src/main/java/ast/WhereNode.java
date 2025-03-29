@@ -9,6 +9,7 @@ public class WhereNode extends ASTNode {
 
     @Override
     public void print(String prefix) {
-        System.out.println("WHERE\n" + prefix + condition);
+        System.out.println(prefix + "WHERE");
+        System.out.println(prefix + "│   └── " + condition);
     }
 }
