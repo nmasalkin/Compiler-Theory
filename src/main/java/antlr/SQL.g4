@@ -22,14 +22,15 @@ LE: '<=';
 GE: '>=';
 
 COMMA: ',';
+STAR: '*';
 
 query: selectStmt EOF;
 
 selectStmt
-    : SELECT columns FROM tableName (WHERE condition)? (ORDER BY orderBy)? (LIMIT limitExpr)?
+    : SELECT columnList FROM tableName (WHERE condition)? (ORDER BY orderBy)? (LIMIT limitExpr)?
     ;
 
-columns: STAR | column (COMMA column)*;
+columnList: STAR | column (COMMA column)*;
 column: IDENT;
 tableName: IDENT;
 
@@ -46,5 +47,3 @@ expr
     | STRING                                                  #stringExpr
     | '(' expr ')'                                            #groupExpr
     ;
-
-STAR: '*';

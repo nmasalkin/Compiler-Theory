@@ -1,15 +1,21 @@
 package ast;
 
-public class LimitNode extends ASTNode {
-    private int limit;
+import java.util.*;
 
-    public LimitNode(int limit) {
+public class LimitNode implements AstNode {
+    private String limit;
+
+    public LimitNode(String limit) {
         this.limit = limit;
     }
 
     @Override
-    public void print(String prefix) {
-        System.out.println(prefix + "LIMIT");
-        System.out.println("└── " + "    └── " + limit);
+    public Collection<? extends AstNode> childs() {
+        return Arrays.asList(new ValueNode(limit));
+    }
+
+    @Override
+    public String toString() {
+        return "LIMIT";
     }
 }

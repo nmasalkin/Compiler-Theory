@@ -2,10 +2,10 @@ package ast;
 
 import java.util.*;
 
-public class ColumnNode implements AstNode {
+public class IdentifierNode implements ExprNode {
     private String name;
 
-    public ColumnNode(String name) {
+    public IdentifierNode(String name) {
         this.name = name;
     }
 

@@ -2,10 +2,10 @@ package ast;
 
 import java.util.*;
 
-public class ColumnNode implements AstNode {
+public class TableNode implements AstNode {
     private String name;
 
-    public ColumnNode(String name) {
+    public TableNode(String name) {
         this.name = name;
     }
 
@@ -16,6 +16,6 @@ public class ColumnNode implements AstNode {
 
     @Override
     public String toString() {
-        return name;
+        return "FROM: " + name;
     }
 }

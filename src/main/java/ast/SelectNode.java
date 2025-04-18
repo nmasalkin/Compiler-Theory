@@ -1,36 +1,35 @@
 package ast;
 
-import java.util.List;
+import java.util.*;
 
-public class SelectNode extends ASTNode {
+public class SelectNode implements AstNode {
     private List<ColumnNode> columns;
-    private FromNode table;
-    private WhereNode where;
-    private OrderByNode orderBy;
+    private TableNode table;
+    private ExprNode where;
+    private OrderNode order;
     private LimitNode limit;
 
-    public SelectNode(List<ColumnNode> columns, FromNode table, WhereNode where, OrderByNode orderBy, LimitNode limit) {
+    public SelectNode(List<ColumnNode> columns, TableNode table, ExprNode where, OrderNode order, LimitNode limit) {
         this.columns = columns;
         this.table = table;
         this.where = where;
-        this.orderBy = orderBy;
+        this.order = order;
         this.limit = limit;
     }
 
     @Override
-    public void print(String prefix) {
-        System.out.println(prefix + "Запрос");
-        System.out.println(prefix + "├── SELECT");
+    public Collection<? extends AstNode> childs() {
+        List<AstNode> children = new ArrayList<>();
+        children.add(new GroupNode("COLUMNS", columns));
+        if (table != null) children.add(table);
+        if (where != null) children.add(new GroupNode("WHERE", List.of(where)));
+        if (order != null) children.add(order);
+        if (limit != null) children.add(limit);
+        return children;
+    }
 
-        for (int i = 0; i < columns.size(); i++) {
-            String connector = (i == columns.size() - 1) ? "└── " : "├── ";
-            columns.get(i).print(prefix + "│   " + connector);
-        }
-
-        table.print(prefix + "├── ");
-
-        if (where != null) where.print(prefix + "├── ");
-        if (orderBy != null) orderBy.print(prefix + "├── ");
-        if (limit != null) limit.print(prefix + "├── ");
+    @Override
+    public String toString() {
+        return "SELECT";
     }
 }

@@ -590,6 +590,7 @@ public class SQLParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
+
 	@SuppressWarnings("CheckReturnValue")
 	public static class IdentExprContext extends ExprContext {
 		public TerminalNode IDENT() { return getToken(SQLParser.IDENT, 0); }

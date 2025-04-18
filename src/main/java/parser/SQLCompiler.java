@@ -1,19 +1,26 @@
 package parser;
 
+import antlr.SQLLexer;
+import antlr.SQLParser;
 import ast.SelectNode;
 import org.antlr.v4.runtime.*;
 
 public class SQLCompiler {
     public static void main(String[] args) {
-        String sql = "SELECT name, age FROM users WHERE age > 18 ORDER BY name DESC LIMIT 10";
+        String query = "SELECT name, age FROM users WHERE age > 30 ORDER BY name DESC LIMIT 10";
 
-        SQLLexer lexer = new SQLLexer(CharStreams.fromString(sql));
+        // Создание лексера и парсера
+        CharStream input = CharStreams.fromString(query);
+        SQLLexer lexer = new SQLLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         SQLParser parser = new SQLParser(tokens);
 
-        ASTBuilder builder = new ASTBuilder();
-        SelectNode ast = builder.buildAST(parser.query());
+        // Парсинг и визит
+        SQLParser.QueryContext tree = parser.query();
+        SqlAstVisitor visitor = new SqlAstVisitor();
+        SelectNode ast = (SelectNode) visitor.visit(tree);
 
-        ast.print("");
+        // Печать AST
+        System.out.println(ast);
     }
 }

@@ -2,11 +2,11 @@ package ast;
 
 import java.util.*;
 
-public class ColumnNode implements AstNode {
-    private String name;
+public class ValueNode implements ExprNode {
+    private String value;
 
-    public ColumnNode(String name) {
-        this.name = name;
+    public ValueNode(String value) {
+        this.value = value;
     }
 
     @Override
@@ -16,6 +16,6 @@ public class ColumnNode implements AstNode {
 
     @Override
     public String toString() {
-        return name;
+        return value;
     }
 }
