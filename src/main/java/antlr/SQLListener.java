@@ -1,5 +1,4 @@
-package antlr;
-
+package antlr;// Generated from SQL.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -18,15 +17,25 @@ public interface SQLListener extends ParseTreeListener {
 	 */
 	void exitQuery(SQLParser.QueryContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLParser#columnList}.
+	 * Enter a parse tree produced by {@link SQLParser#selectStmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterColumnList(SQLParser.ColumnListContext ctx);
+	void enterSelectStmt(SQLParser.SelectStmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLParser#columnList}.
+	 * Exit a parse tree produced by {@link SQLParser#selectStmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitColumnList(SQLParser.ColumnListContext ctx);
+	void exitSelectStmt(SQLParser.SelectStmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SQLParser#columns}.
+	 * @param ctx the parse tree
+	 */
+	void enterColumns(SQLParser.ColumnsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SQLParser#columns}.
+	 * @param ctx the parse tree
+	 */
+	void exitColumns(SQLParser.ColumnsContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SQLParser#column}.
 	 * @param ctx the parse tree
@@ -58,43 +67,83 @@ public interface SQLListener extends ParseTreeListener {
 	 */
 	void exitCondition(SQLParser.ConditionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLParser#operator}.
+	 * Enter a parse tree produced by {@link SQLParser#orderBy}.
 	 * @param ctx the parse tree
 	 */
-	void enterOperator(SQLParser.OperatorContext ctx);
+	void enterOrderBy(SQLParser.OrderByContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLParser#operator}.
+	 * Exit a parse tree produced by {@link SQLParser#orderBy}.
 	 * @param ctx the parse tree
 	 */
-	void exitOperator(SQLParser.OperatorContext ctx);
+	void exitOrderBy(SQLParser.OrderByContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLParser#value}.
+	 * Enter a parse tree produced by {@link SQLParser#limitExpr}.
 	 * @param ctx the parse tree
 	 */
-	void enterValue(SQLParser.ValueContext ctx);
+	void enterLimitExpr(SQLParser.LimitExprContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLParser#value}.
+	 * Exit a parse tree produced by {@link SQLParser#limitExpr}.
 	 * @param ctx the parse tree
 	 */
-	void exitValue(SQLParser.ValueContext ctx);
+	void exitLimitExpr(SQLParser.LimitExprContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLParser#columnOrder}.
+	 * Enter a parse tree produced by the {@code identExpr}
+	 * labeled alternative in {@link SQLParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterColumnOrder(SQLParser.ColumnOrderContext ctx);
+	void enterIdentExpr(SQLParser.IdentExprContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLParser#columnOrder}.
+	 * Exit a parse tree produced by the {@code identExpr}
+	 * labeled alternative in {@link SQLParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitColumnOrder(SQLParser.ColumnOrderContext ctx);
+	void exitIdentExpr(SQLParser.IdentExprContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SQLParser#limitValue}.
+	 * Enter a parse tree produced by the {@code stringExpr}
+	 * labeled alternative in {@link SQLParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterLimitValue(SQLParser.LimitValueContext ctx);
+	void enterStringExpr(SQLParser.StringExprContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SQLParser#limitValue}.
+	 * Exit a parse tree produced by the {@code stringExpr}
+	 * labeled alternative in {@link SQLParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitLimitValue(SQLParser.LimitValueContext ctx);
+	void exitStringExpr(SQLParser.StringExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code groupExpr}
+	 * labeled alternative in {@link SQLParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterGroupExpr(SQLParser.GroupExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code groupExpr}
+	 * labeled alternative in {@link SQLParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitGroupExpr(SQLParser.GroupExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code numberExpr}
+	 * labeled alternative in {@link SQLParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterNumberExpr(SQLParser.NumberExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code numberExpr}
+	 * labeled alternative in {@link SQLParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitNumberExpr(SQLParser.NumberExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code binaryExpr}
+	 * labeled alternative in {@link SQLParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterBinaryExpr(SQLParser.BinaryExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code binaryExpr}
+	 * labeled alternative in {@link SQLParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitBinaryExpr(SQLParser.BinaryExprContext ctx);
 }

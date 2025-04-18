@@ -31,6 +31,6 @@ public class SelectNode extends ASTNode {
 
         if (where != null) where.print(prefix + "├── ");
         if (orderBy != null) orderBy.print(prefix + "├── ");
-        if (limit != null) limit.print(prefix + "└── ");
+        if (limit != null) limit.print(prefix + "├── ");
     }
 }

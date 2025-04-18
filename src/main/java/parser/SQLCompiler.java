@@ -1,7 +1,5 @@
 package parser;
 
-import antlr.SQLLexer;
-import antlr.SQLParser;
 import ast.SelectNode;
 import org.antlr.v4.runtime.*;
 

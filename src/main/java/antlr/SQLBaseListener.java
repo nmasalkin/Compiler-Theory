@@ -1,4 +1,4 @@
-package antlr;
+package antlr;// Generated from SQL.g4 by ANTLR 4.13.2
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -28,13 +28,25 @@ public class SQLBaseListener implements SQLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterColumnList(SQLParser.ColumnListContext ctx) { }
+	@Override public void enterSelectStmt(SQLParser.SelectStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitColumnList(SQLParser.ColumnListContext ctx) { }
+	@Override public void exitSelectStmt(SQLParser.SelectStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterColumns(SQLParser.ColumnsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitColumns(SQLParser.ColumnsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -76,49 +88,85 @@ public class SQLBaseListener implements SQLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOperator(SQLParser.OperatorContext ctx) { }
+	@Override public void enterOrderBy(SQLParser.OrderByContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOperator(SQLParser.OperatorContext ctx) { }
+	@Override public void exitOrderBy(SQLParser.OrderByContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterValue(SQLParser.ValueContext ctx) { }
+	@Override public void enterLimitExpr(SQLParser.LimitExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitValue(SQLParser.ValueContext ctx) { }
+	@Override public void exitLimitExpr(SQLParser.LimitExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterColumnOrder(SQLParser.ColumnOrderContext ctx) { }
+	@Override public void enterIdentExpr(SQLParser.IdentExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitColumnOrder(SQLParser.ColumnOrderContext ctx) { }
+	@Override public void exitIdentExpr(SQLParser.IdentExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLimitValue(SQLParser.LimitValueContext ctx) { }
+	@Override public void enterStringExpr(SQLParser.StringExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLimitValue(SQLParser.LimitValueContext ctx) { }
+	@Override public void exitStringExpr(SQLParser.StringExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterGroupExpr(SQLParser.GroupExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitGroupExpr(SQLParser.GroupExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNumberExpr(SQLParser.NumberExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNumberExpr(SQLParser.NumberExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBinaryExpr(SQLParser.BinaryExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBinaryExpr(SQLParser.BinaryExprContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

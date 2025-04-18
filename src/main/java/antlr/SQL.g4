@@ -1,27 +1,50 @@
 grammar SQL;
 
-query: SELECT columnList FROM tableName (WHERE condition)? (ORDER BY columnOrder)? (LIMIT limitValue)?;
+WS: [ \t\r\n]+ -> skip ;
+STRING: '\'' .*? '\'' ;
+NUMBER: [0-9]+ ;
+IDENT: [a-zA-Z_][a-zA-Z_0-9]* ;
 
 SELECT: 'SELECT';
 FROM: 'FROM';
 WHERE: 'WHERE';
 ORDER: 'ORDER';
 BY: 'BY';
-LIMIT: 'LIMIT';
-
-columnList: '*' | column (',' column)*;
-column: IDENTIFIER;
-tableName: IDENTIFIER;
-condition: column operator value;
-operator: '=' | '>' | '<' | '>=' | '<=' | '<>';
-value: NUMBER | STRING;
-columnOrder: column (ASC | DESC)?;
 ASC: 'ASC';
 DESC: 'DESC';
-limitValue: NUMBER;
+LIMIT: 'LIMIT';
 
-IDENTIFIER: [a-zA-Z_][a-zA-Z_0-9]*;
-NUMBER: [0-9]+;
-STRING: '\'' .*? '\'';
+EQ: '=';
+NEQ: '<>';
+LT: '<';
+GT: '>';
+LE: '<=';
+GE: '>=';
 
-WS: [ \t\r\n]+ -> skip;
+COMMA: ',';
+
+query: selectStmt EOF;
+
+selectStmt
+    : SELECT columns FROM tableName (WHERE condition)? (ORDER BY orderBy)? (LIMIT limitExpr)?
+    ;
+
+columns: STAR | column (COMMA column)*;
+column: IDENT;
+tableName: IDENT;
+
+condition: expr;
+
+orderBy: column (ASC | DESC)?;
+
+limitExpr: NUMBER;
+
+expr
+    : left=expr op=(EQ | NEQ | LT | LE | GT | GE) right=expr   #binaryExpr
+    | IDENT                                                   #identExpr
+    | NUMBER                                                  #numberExpr
+    | STRING                                                  #stringExpr
+    | '(' expr ')'                                            #groupExpr
+    ;
+
+STAR: '*';
